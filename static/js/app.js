@@ -22,21 +22,28 @@ App.EditRoute = Ember.Route.extend({
     }
 })
 
+App.AddRoute = Ember.Route.extend({
+    model: function(params){
+      return this.store.find('coffee');
+    }
+})
+
 App.AddController = Ember.ObjectController.extend({
   name: '',
   short_description: '',
   long_description: '',
-  image: '',
+  // image: '',
   price: '',
   who_drinks_it: '',
   how_to_drink: '',
-  gallery: '',
+  // gallery: '',
   actions: {
     addCoffee: function() {
       //0. is submit button binded correctly?
       console.log('addCoffee Called')
       //1. Build new Coffee object
       var coffee = this.store.createRecord('coffee', {
+        // console.log(this.get('name'));
         name: this.get('name'),
         short_description: this.get('short_description'),
         long_description: this.get('long_description'),
@@ -47,14 +54,12 @@ App.AddController = Ember.ObjectController.extend({
         // gallery: this.get('gallery')
       });
 
-      // console.log(this.get('name'));
-
-      var controller = this;
       //2. Save the coffee
       coffee.save().then(function(coffee) {
         //Clear controller variables???
         //3. Add to Model
-        controller.get('model.coffees'.addObject(coffee));
+        console.log(this.get('model.coffees'))
+        // this.get('model.coffees').addObject(coffee);
       });
     }
   }

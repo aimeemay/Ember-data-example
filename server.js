@@ -87,6 +87,12 @@ app.get('/api/v1/coffees', function (req, res) {
   // res.json({'coffees': coffee});
 });
 
+app.post('/api/v1/coffees', function (req, res) {
+  var message = 'get here'
+  console.log(message)
+  return res.json(message);
+});
+
 app.get("/api/v1/coffees/:id", function(req, res){
  res.json({coffees: coffee.filter(function(a, i) {
    return +req.params.id === +a.id;
