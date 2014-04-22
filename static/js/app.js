@@ -8,8 +8,7 @@ App.Router.map(function() {
 App.IndexRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('coffee');
-    // console.log(this.store.find('coffee'))
-    console.log('here');
+    // console.log(this.store.find('coffee')
     // return Ember.$.getJSON('/api/v1/coffees').then(function(data) {
     //   return data.coffees;
     // });
@@ -23,10 +22,10 @@ App.EditRoute = Ember.Route.extend({
 })
 
 App.AddRoute = Ember.Route.extend({
-    model: function(params){
-      return this.store.find('coffee');
-    }
-})
+  model: function() {
+    return this.store.find('coffee');
+  }
+});
 
 App.AddController = Ember.ObjectController.extend({
   name: '',
@@ -39,11 +38,9 @@ App.AddController = Ember.ObjectController.extend({
   // gallery: '',
   actions: {
     addCoffee: function() {
-      //0. is submit button binded correctly?
-      console.log('addCoffee Called')
+      // console.log('addCoffee Called')
       //1. Build new Coffee object
       var coffee = this.store.createRecord('coffee', {
-        // console.log(this.get('name'));
         name: this.get('name'),
         short_description: this.get('short_description'),
         long_description: this.get('long_description'),
@@ -55,12 +52,13 @@ App.AddController = Ember.ObjectController.extend({
       });
 
       //2. Save the coffee
-      coffee.save().then(function(coffee) {
-        //Clear controller variables???
-        //3. Add to Model
-        console.log(this.get('model.coffees'))
-        // this.get('model.coffees').addObject(coffee);
-      });
+      coffee.save();//.then(function(coffee) {
+        //3. Clear controller variables???
+          // console.log('got here')
+          // this.set('name', 'test');
+        //4. Add to Model - do I need to because in same model??
+          // this.get('model').addObject(coffee);
+      //});
     }
   }
 
