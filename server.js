@@ -1,3 +1,4 @@
+var coffeeProperties = ['id', 'name', 'short_description', 'long_description', 'price', 'image', 'how_to_drink', 'who_drinks_it', 'gallery']
 var coffee = [
 {
   id: 0,
@@ -80,17 +81,40 @@ app.configure(function() {
 
 app.get('/api/v1/coffees', function (req, res) {
   coffee_list = coffee.map(function(x, i){
-   return { id: x.id, name: x.name, short_description: x.short_description, long_description: x.long_description, who_drinks_it: x.who_drinks_it, how_to_drink: x.how_to_drink, price: x.price};
+   return { 
+    id: x.id, 
+    name: x.name, 
+    short_description: x.short_description, 
+    long_description: x.long_description, 
+    who_drinks_it: x.who_drinks_it, 
+    how_to_drink: x.how_to_drink, 
+    price: x.price
+   };
   })
   // res.writeHead(200, { 'Content-Type': 'application/json' });
   res.json({'coffees': coffee_list});
-  // res.json({'coffees': coffee});
 });
 
 app.post('/api/v1/coffees', function (req, res) {
-  var message = 'get here'
-  console.log(message)
-  return res.json(message);
+  var newCoffee = req.body.coffee
+  console.log(newCoffee);
+
+  for (var i = 0; i < coffeeProperties.length; i++) {
+    console.log(coffeeProperties[i]);
+    if (newCoffee.coffeeproperties[i]) {
+      // console.log(newCoffee.property);
+      console.log('true')
+    }
+    else {console.log('false')};
+    // if (newCoffee.property) {
+    //   console.log(property + ': ' + newCoffee.property);
+    // };
+  };
+
+  // for (var i = newCoffee.length - 1; i >= 0; i--) {
+  //   newCoffee[i]
+  // };
+
 });
 
 app.get("/api/v1/coffees/:id", function(req, res){
