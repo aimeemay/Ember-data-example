@@ -1,4 +1,3 @@
-var coffeeProperties = ['id', 'name', 'short_description', 'long_description', 'price', 'image', 'how_to_drink', 'who_drinks_it', 'gallery']
 var coffee = [
 {
   id: 0,
@@ -96,24 +95,39 @@ app.get('/api/v1/coffees', function (req, res) {
 });
 
 app.post('/api/v1/coffees', function (req, res) {
+  //1. create new coffee object
   var newCoffee = req.body.coffee
-  console.log(newCoffee);
+  // console.log(newCoffee);
+  //console.log(coffee.length);
+  
+  var newCoffeeStr = {
+    id : coffee.length,
+    name : newCoffee.name,
+    short_description : newCoffee.short_description,
+    long_description : newCoffee.long_description,
+    price : newCoffee.price,
+    image : '',
+    who_drinks_it: newCoffee.who_drinks_it,
+    how_to_drink: newCoffee.how_to_drink,
+    gallery: []
+  }
+  console.log(newCoffeeStr)
+  coffee.push(newCoffeeStr);
 
-  for (var i = 0; i < coffeeProperties.length; i++) {
-    console.log(coffeeProperties[i]);
-    if (newCoffee.coffeeproperties[i]) {
-      // console.log(newCoffee.property);
-      console.log('true')
-    }
-    else {console.log('false')};
-    // if (newCoffee.property) {
-    //   console.log(property + ': ' + newCoffee.property);
-    // };
-  };
 
-  // for (var i = newCoffee.length - 1; i >= 0; i--) {
-  //   newCoffee[i]
-  // };
+  //2. append to coffee array
+
+
+
+
+   // for (var i = 0; i < coffeeProperties.length; i++) {
+   //  console.log(coffeeProperties[i]);
+   //  if (newCoffee.coffeeproperties[i]) {
+   //    // console.log(newCoffee.property);
+   //    console.log('true')
+   //  }
+   //  else {console.log('false')};
+   // };
 
 });
 

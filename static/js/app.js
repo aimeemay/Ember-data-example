@@ -31,11 +31,9 @@ App.AddController = Ember.ObjectController.extend({
   name: '',
   short_description: '',
   long_description: '',
-  // image: '',
   price: '',
   who_drinks_it: '',
   how_to_drink: '',
-  // gallery: '',
   actions: {
     addCoffee: function() {
       // console.log('addCoffee Called')
@@ -44,11 +42,9 @@ App.AddController = Ember.ObjectController.extend({
         name: this.get('name'),
         short_description: this.get('short_description'),
         long_description: this.get('long_description'),
-        // image: this.get('image'),
         price: this.get('price'),
         who_drinks_it: this.get('who_drinks_it'),
         how_to_drink: this.get('how_to_drink'),
-        // gallery: this.get('gallery')
       });
 
       //2. Save the coffee
