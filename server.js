@@ -1,67 +1,10 @@
-var coffee = [
-{
-  id: 0,
-  name: "Capuccino",
-  short_description: " Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  long_description: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos." ,
-  price: 2,
-  image: "http://placehold.it/300x300",
-  who_drinks_it: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  how_to_drink: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  gallery: ["http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300"]
-},
-{
-  id: 1,
-  name: "Latté",
-  short_description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-  long_description: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos." ,
-  price: 2,
-  image: "http://placehold.it/300x300",
-  who_drinks_it: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  how_to_drink: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  gallery: ["http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300"]
-},
-{
-  id: 2,
-  name: "Flate White",
-  short_description: " Ut enim ea dolorum quam quisquam beatae doloremqun.",
-  long_description: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos." ,
-  price: 2,
-  image: "http://placehold.it/300x300",
-  who_drinks_it: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  how_to_drink: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  gallery: ["http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300"]
-},
-{
-  id: 3,
-  name: "Piccolo",
-  short_description: " Ut enim ea dolorum quam quisquam beatae doloremqun.",
-  long_description: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos." ,
-  price: 2,
-  image: "http://placehold.it/300x300",
-  who_drinks_it: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  how_to_drink: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  gallery: ["http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300"]
-},
-{
-  id: 4,
-  name: "Machiato",
-  short_description: " Ut enim ea dolorum quam quisquam beatae doloremqun.",
-  long_description: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos." ,
-  price: 1,
-  image: "http://placehold.it/300x300",
-  who_drinks_it: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  how_to_drink: "Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos. Velit reiciendis voluptas assumenda doloremque temporibus nisi quos.",
-  gallery: ["http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300", "http://placehold.it/300x300"]
-}
-  ];
+
 
 
  // Look at the ember: http://jsbin.com/izijal/9/edit
 var express = require('express');
-
 var livereload = require('express-livereload');
-
+var fs = require('fs');
 var app = express();
 
 
@@ -79,7 +22,12 @@ app.configure(function() {
 
 
 app.get('/api/v1/coffees', function (req, res) {
-  coffee_list = coffee.map(function(x, i){
+  fs.readFile('coffeeData.js', 'utf8', function (err, data) {
+    if (err) throw err;
+    var json = JSON.parse(data);
+    // console.log(json);
+
+  coffee_list = json.map(function(x, i){
    return { 
     id: x.id, 
     name: x.name, 
@@ -90,8 +38,13 @@ app.get('/api/v1/coffees', function (req, res) {
     price: x.price
    };
   })
-  // res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.json({'coffees': coffee_list});
+  console.log(coffee_list);
+  
+  //res.writeHead(200, { 'Content-Type': 'application/json' });
+  return res.json({'coffees': coffee_list});
+  });
+
+  
 });
 
 app.post('/api/v1/coffees', function (req, res) {
@@ -99,7 +52,7 @@ app.post('/api/v1/coffees', function (req, res) {
   var newCoffee = req.body.coffee
   // console.log(newCoffee);
   //console.log(coffee.length);
-  
+
   var newCoffeeStr = {
     id : coffee.length,
     name : newCoffee.name,
@@ -111,27 +64,19 @@ app.post('/api/v1/coffees', function (req, res) {
     how_to_drink: newCoffee.how_to_drink,
     gallery: []
   }
-  console.log(newCoffeeStr)
+  // console.log(newCoffeeStr);
   coffee.push(newCoffeeStr);
-
+  console.log(coffee);
 
   //2. append to coffee array
-
-
-
-
-   // for (var i = 0; i < coffeeProperties.length; i++) {
-   //  console.log(coffeeProperties[i]);
-   //  if (newCoffee.coffeeproperties[i]) {
-   //    // console.log(newCoffee.property);
-   //    console.log('true')
-   //  }
-   //  else {console.log('false')};
-   // };
 
 });
 
 app.get("/api/v1/coffees/:id", function(req, res){
+ // var coffees = fs.readFile('coffeeData,js', function (err, data) {
+ //  if (err) throw err;
+ //  console.log(data);
+ // });
  res.json({coffees: coffee.filter(function(a, i) {
    return +req.params.id === +a.id;
  })})
