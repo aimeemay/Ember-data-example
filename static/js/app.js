@@ -1,3 +1,11 @@
+//to do
+  //1. add
+    //1.1 return something to signal it worked
+    //1.2 id
+    //1.3 clear controller variables
+  //2. edit
+    //2.1 add validation that page has been edited http://emberjs.com/guides/getting-started/accepting-edits/
+
 App = Ember.Application.create();
 
 App.Router.map(function() {
@@ -21,6 +29,18 @@ App.EditRoute = Ember.Route.extend({
     }
 })
 
+App.EditController = Ember.ObjectController.extend({
+  prices : [1, 2, 3, 4],
+  actions: {
+    editCoffee: function() {
+      // console.log('editCoffee Called')
+      //1. Save model
+      this.get('model').save();
+      //2. 
+    }
+  }
+});
+
 App.AddRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('coffee');
@@ -28,15 +48,15 @@ App.AddRoute = Ember.Route.extend({
 });
 
 App.AddController = Ember.ObjectController.extend({
+  prices: [1, 2, 3, 4],
   name: '',
   short_description: '',
   long_description: '',
-  price: '',
+  price: 2,
   who_drinks_it: '',
   how_to_drink: '',
   actions: {
     addCoffee: function() {
-      // console.log('addCoffee Called')
       //1. Build new Coffee object
       var coffee = this.store.createRecord('coffee', {
         name: this.get('name'),
@@ -48,13 +68,13 @@ App.AddController = Ember.ObjectController.extend({
       });
 
       //2. Save the coffee
-      coffee.save();//.then(function(coffee) {
+      var controller = this;
+
+      coffee.save().then(function() {
         //3. Clear controller variables???
-          // console.log('got here')
-          // this.set('name', 'test');
-        //4. Add to Model - do I need to because in same model??
-          // this.get('model').addObject(coffee);
-      //});
+          console.log('got here')
+          controller.set('name', 'test');
+      });
     }
   }
 
@@ -71,8 +91,10 @@ App.Coffee = DS.Model.extend({
     short_description: DS.attr(),
     long_description: DS.attr(),
     price: DS.attr(),
+    image: DS.attr(),
     who_drinks_it: DS.attr(),
-    how_to_drink: DS.attr()
+    how_to_drink: DS.attr(),
+    gallery: DS.attr()
 })
 
 

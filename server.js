@@ -22,21 +22,21 @@ app.get('/api/v1/coffees', function (req, res) {
     var json = JSON.parse(data);
     // console.log(json);
 
-  coffee_list = json.map(function(x, i){
-   return { 
-    id: x.id, 
-    name: x.name, 
-    short_description: x.short_description, 
-    long_description: x.long_description, 
-    who_drinks_it: x.who_drinks_it, 
-    how_to_drink: x.how_to_drink, 
-    price: x.price
-   };
-  })
+  // coffee_list = json.map(function(x, i){
+  //  return { 
+  //   id: x.id, 
+  //   name: x.name, 
+  //   short_description: x.short_description, 
+  //   long_description: x.long_description, 
+  //   who_drinks_it: x.who_drinks_it, 
+  //   how_to_drink: x.how_to_drink, 
+  //   price: x.price
+  //  };
+  // })
   // console.log(coffee_list);
   
   //res.writeHead(200, { 'Content-Type': 'application/json' });
-  return res.json({'coffees': coffee_list});
+  return res.json({'coffees': json});
   });
   
 });
@@ -89,6 +89,54 @@ app.get("/api/v1/coffees/:id", function(req, res){
       return +req.params.id === +a.id;
     })});
  });
+});
+
+//PUT of coffee edit
+app.put("/api/v1/coffees/:id", function(req, res){
+  // 1. Get edited coffee data
+  var editedCoffeeObj = req.body.coffee
+  var editedCoffeeID = req.params.id
+  // console.log(editedCoffeeObj);
+
+  //2. Get master coffee object (from file)
+  var coffeeData = fs.readFileSync('coffeeData.js', 'utf8', function (err, data) {
+    if (err) throw err;
+  });
+  var coffeeObj = JSON.parse(coffeeData);
+
+  //3. Update master coffee object with edited coffee data
+  for (var i = 0; i < coffeeObj.length; i++) {
+    if (coffeeObj[i].id == editedCoffeeID) {
+      coffeeObj[i] = editedCoffeeObj;
+    };
+  };
+  // console.log(coffeeObj);
+
+  //4. Save updated master coffee object to file
+  var coffeeObjStr = JSON.stringify(coffeeObj);
+
+  fs.writeFile('coffeeData.js', coffeeObjStr, function (err) {
+    if (err) throw err;
+    console.log('It\'s saved!');
+  });
+
+  // function updateField(field, newValue) {
+  //   console.log('got to update field function');
+  //   for (var i in coffeeObj) {
+  //     // console.log(coffeeObj[i].name);
+  //     if ( coffeeObj[i].id == editedCoffeeID ) {
+  //       coffeeObj[i].field = newValue;
+  //       // console.log(coffeeObj[i].field);
+  //   }
+  //   };
+  // }
+
+  // for (var key in editedCoffeeObj) {
+  //   // console.log(key + ": " + editedCoffeeObj[key]);
+  //   newValue = editedCoffeeObj[key];
+  //   updateField(key, newValue);
+  //   // console.log(coffeeObj);
+  // }
 });
 
 
